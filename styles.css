@@ -41,8 +41,7 @@ body{
     }
     button, a{
         background-color: unset;
-        /* this hides the blue square on the hovers  */
-        -webkit-tap-highlight-color: transparent; /* Safari/Chrome mobile */
+        -webkit-tap-highlight-color: transparent;
     }
 
 
