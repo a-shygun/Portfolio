@@ -2,9 +2,8 @@ const body = document.body;
 // FOR THE HEADER
 const headerText = {
   home: { en: "Home", fa: "خانه", de: "Startseite", href: "#home" },
-  about: { en: "About", fa: "درباره", de: "Uber uns", href: "#about" },
   projects: { en: "Projects", fa: "پروژه‌ها", de: "Projekte", href: "#projects" },
-  contact: { en: "Contact", fa: "تماس با ما", de: "Kontakt", href: "#contact" }
+  education: { en: "Education", fa: "تحصیلات", de: "fix this", href: "#education"},
 };
 function createHeader(selectedLang, selectedWidth) {
 
@@ -75,7 +74,7 @@ function createHeader(selectedLang, selectedWidth) {
 
 
   themeBtn.addEventListener('click', () => {
-    document.body.classList.toggle('light');
+    document.documentElement.classList.toggle('light');
     document.querySelector('.shape').classList.toggle('cancel')
   });
 
@@ -140,6 +139,7 @@ const sectionTexts = {
 };
 function createSectionTitle({ textKey = null, lang = "en", className = "line left" } = {}) {
   const h2 = document.createElement("h2");
+  h2.id= textKey
   if (lang === 'fa') {
     if ( className === 'line left') {
       h2.className = 'line right';
@@ -520,6 +520,112 @@ function createStars({ starCount = 250, maxTime = 30, containerId = "universe" }
     );
   }
 }
+const projectsData = [
+  {
+    title: "Portfolio",
+    description: "Responsive personal website built with HTML, CSS, and JavaScript. Features multiple sections (about, projects, contact), light/dark theme toggle, and smooth animations. Designed as a central hub to showcase my skills, projects, and background.",
+    images: [
+      "./images/projects/portfolio1.png",
+      "./images/projects/portfolio2.png",
+      "./images/projects/portfolio3.png"
+    ],
+    link: "https://shygun.com",
+    techs: [
+      { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+      { name: "JS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" }
+    ]
+  },
+  {
+    title: "Playlistr",
+    description: "Full-stack Spotify playlist app with Flask backend and JavaScript frontend. Lets users generate smart playlists from their Spotify library, explore stats (top tracks, artists, genres), and visualize listening trends. Uses Spotify API with user authentication.",
+    images: [
+      "./images/projects/playlistr1.png",
+      "./images/projects/playlistr2.png",
+      "./images/projects/playlistr3.png"
+    ],
+    link: "https://playlistr.shygun.com",
+    techs: [
+      { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+      { name: "JS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "Matplotlib", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" }
+    ]
+  }
+];
+function createProjects(selectedLang) {
+  const container = document.createElement("div");
+  container.classList.add("projects");
+
+  projectsData.forEach(p => {
+    const card = document.createElement("div");
+    card.classList.add("project-card", "style");
+
+    // --- CONTENT DIV (header + description + techs) ---
+    const contentDiv = document.createElement("div");
+    contentDiv.classList.add("project-content");
+
+    // Header row (title + button)
+    const headerRow = document.createElement("div");
+    headerRow.classList.add("project-header");
+
+    const h1 = document.createElement("h1");
+    h1.textContent = p.title;
+
+    const link = document.createElement("a");
+    link.href = p.link;
+    link.target = "_blank";
+    link.classList.add("style", "btn-type-2");
+    link.innerHTML = `<i class="ri-image-circle-fill ri-2x"></i>`;
+
+    headerRow.append(h1, link);
+
+    // Description
+    const desc = document.createElement("p");
+    desc.textContent = p.description;
+
+    // Techs
+    const techDiv = document.createElement("div");
+    techDiv.classList.add("project-techs");
+    p.techs.forEach(t => {
+      const tSpan = document.createElement("span");
+      tSpan.classList.add("tech-tag");
+      tSpan.innerHTML = `<img src="${t.logo}" alt="${t.name}" class="tech-logo">`;
+      techDiv.appendChild(tSpan);
+    });
+
+    contentDiv.append(headerRow, desc, techDiv);
+
+    // --- IMAGE SLIDER ---
+    const slider = document.createElement("div");
+    slider.classList.add("project-slider");
+
+    const img = document.createElement("img");
+    img.src = p.images[0];
+    img.alt = p.title;
+    slider.appendChild(img);
+
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % p.images.length;
+      img.classList.add("fade-out");
+      setTimeout(() => {
+        img.src = p.images[index];
+        img.classList.remove("fade-out");
+      }, 500);
+    }, 4000);
+
+    // --- APPEND CARD CHILDREN ---
+    card.append(contentDiv, slider);
+    container.appendChild(card);
+  });
+
+  return container;
+}
+
+
+
+
+
 // FOR THE EDUCATION DIV 
 const certs = {
   en: [
@@ -704,13 +810,13 @@ const eduTexts = {
   duration: { en: "Duration", fa: "مدت زمان", de: "Dauer" },
 
   languages: { en: "Languages", fa: "زبان‌ها", de: "Sprachen" },
+  persian: { en: "Persian", fa: "فارسی", de: "Persisch" },
   english: { en: "English", fa: "انگلیسی", de: "Englisch" },
   german: { en: "German", fa: "آلمانی", de: "Deutsch" },
-  persian: { en: "Persian", fa: "فارسی", de: "Persisch" },
 
+  persianLevel: { en: "Native", fa: "زبان مادری", de: "Muttersprache" },
   englishLevel: { en: "Professional Proficiency", fa: "تسلط حرفه‌ای", de: "Berufliche Kenntnisse" },
   germanLevel: { en: "Intermediate", fa: "متوسط", de: "Mittelstufe" },
-  persianLevel: { en: "Native", fa: "زبان مادری", de: "Muttersprache" },
 
   ceValue: { en: "Bachelor's Degree", fa: "لیسانس", de: "Bachelorabschluss" },
   instituteValue: { en: "Azad University of Gilan", fa: "دانشگاه آزاد رشت", de: "Azad Universität Gilan" },
@@ -719,6 +825,7 @@ const eduTexts = {
 function createEdu(selectedLang = "en") {
   const educationsDiv = document.createElement('div');
   educationsDiv.classList.add('educations');
+  // educationsDiv.id='education'
 
   const eduDiv = document.createElement('div');
   eduDiv.classList.add('edu');
@@ -753,9 +860,9 @@ function createEdu(selectedLang = "en") {
   langSection.classList.add('lng');
   [
     { title: "languages", icon: "ri-translate-2 ri-2x" },
+    { title: "persian", value: "persianLevel" },
     { title: "english", value: "englishLevel" },
     { title: "german", value: "germanLevel" },
-    { title: "persian", value: "persianLevel" }
   ].forEach(item => {
     const div = document.createElement('div');
     const h2 = document.createElement('h2');
@@ -789,31 +896,31 @@ function createEdu(selectedLang = "en") {
   listBtn.classList.add("list-btn", "style", "btn-effect");
   listBtn.textContent = "List";
 
-  toggleDiv.appendChild(sliderBtn);
   toggleDiv.appendChild(listBtn);
+  toggleDiv.appendChild(sliderBtn);
 
   const certsSlider = document.createElement("div");
   certsSlider.classList.add("certs-slider");
   const certsList = document.createElement("div");
   certsList.classList.add("certs-list");
 
-  certsSlider.style.display = "flex";
-  certsList.style.display = "none";
-  sliderBtn.classList.add("active", 'btn-type-2');
-  listBtn.classList.remove("active");
+  certsSlider.style.display = "none";
+  certsList.style.display = "flex";
+  listBtn.classList.add("active", "btn-type-2");
+  sliderBtn.classList.remove("active", "btn-type-2");
 
   sliderBtn.addEventListener("click", () => {
     certsSlider.style.display = "flex";
     certsList.style.display = "none";
-    sliderBtn.classList.add("active",'btn-type-2');
-    listBtn.classList.remove("active", 'btn-type-2');
+    sliderBtn.classList.add("active", "btn-type-2");
+    listBtn.classList.remove("active", "btn-type-2");
   });
 
   listBtn.addEventListener("click", () => {
     certsSlider.style.display = "none";
     certsList.style.display = "flex";
-    listBtn.classList.add("active", 'btn-type-2');
-    sliderBtn.classList.remove("active",'btn-type-2');
+    listBtn.classList.add("active", "btn-type-2");
+    sliderBtn.classList.remove("active", "btn-type-2");
   });
 
   educationsDiv.appendChild(eduDiv);
@@ -838,77 +945,156 @@ function populateCerts(containerSelector, certs, selectedLang = "en") {
             container.appendChild(msg);
             return;
         }
-
         certsArray.forEach(cert => {
-            const div = document.createElement("div");
-            div.classList.add("style", "cert");
+          const div = document.createElement("div");
+          div.classList.add("style", "cert");
 
-            // --- Top Section ---
-            const topDiv = document.createElement("div");
-            topDiv.classList.add("top");
+          // --- First Row ---
+          const row1 = document.createElement("div");
+          row1.classList.add("row-1");
 
-            const h2 = document.createElement("h2");
-            h2.textContent = cert.name;
+          // Div 1: Program name
+          const div1 = document.createElement("div");
+          const h2 = document.createElement("h2");
+          h2.textContent = cert.name;
+          div1.appendChild(h2);
 
-            const btn = document.createElement("button");
-            btn.classList.add("style", "btn-type-2");
-            btn.innerHTML = `<i class="ri-image-circle-fill ri-2x"></i>`;
+          // Div 2: Institute
+          const div2 = document.createElement("div");
+          const h3 = document.createElement("h3");
+          h3.textContent = cert.place;
+          div2.appendChild(h3);
 
-            // Modal on button click
-            btn.addEventListener("click", () => {
-                const overlay = document.createElement("div");
-                overlay.classList.add("modal-overlay");
+          // Div 3: Date
+          const div3 = document.createElement("div");
+          const h4 = document.createElement("h4");
+          h4.textContent = cert.date;
+          div3.appendChild(h4);
 
-                const img = document.createElement("img");
-                img.src = cert.image;
-                img.alt = cert.name;
+          // Put them in row-1
+          row1.append(div1, div2, div3);
+          // --- Second Row ---
+          const row2 = document.createElement("div");
+          row2.classList.add("row-2");
 
-                overlay.appendChild(img);
-                document.body.appendChild(overlay);
+          // Tech tags
+          // const techsDiv = document.createElement("div");
+          row2.classList.add("techs");
+          // Image button
+          const btn = document.createElement("button");
+          btn.classList.add("style", "btn-type-2");
+          btn.innerHTML = `<i class="ri-image-circle-fill ri-2x"></i>`;
 
-                // Close modal on click
-                overlay.addEventListener("click", () => {
-                    overlay.remove();
-                });
+          // Modal handler
+          btn.addEventListener("click", () => {
+            const overlay = document.createElement("div");
+            overlay.classList.add("modal-overlay");
 
-                // Close modal on ESC
-                const escHandler = (e) => {
-                    if (e.key === "Escape") {
-                        overlay.remove();
-                        document.removeEventListener("keydown", escHandler);
-                    }
-                };
-                document.addEventListener("keydown", escHandler);
-            });
+            const img = document.createElement("img");
+            img.src = cert.image;
+            img.alt = cert.name;
 
-            topDiv.append(h2, btn);
+            overlay.appendChild(img);
+            document.body.appendChild(overlay);
 
-            // --- Detail Section ---
-            const detailDiv = document.createElement("div");
-            detailDiv.classList.add("detail-div");
+            overlay.addEventListener("click", () => overlay.remove());
 
-            const h4 = document.createElement("h4");
-            h4.textContent = cert.place;
+            const escHandler = (e) => {
+              if (e.key === "Escape") {
+                overlay.remove();
+                document.removeEventListener("keydown", escHandler);
+              }
+            };
+            document.addEventListener("keydown", escHandler);
+          });
+          row2.appendChild(btn)
+          
+          cert.techs.forEach(t => {
+            const tP = document.createElement("p");
+            tP.classList.add("style", "btn");
+            tP.textContent = t;
+            row2.appendChild(tP);
+          });
+        
 
-            const p = document.createElement("p");
-            p.textContent = cert.date;
 
-            detailDiv.append(h4, p);
+          // row2.append(techsDiv, btn);
+          // row2.append(techsDiv);
 
-            // --- Tech Tags ---
-            const techsDiv = document.createElement("div");
-            techsDiv.classList.add("techs");
-            cert.techs.forEach(t => {
-                const tP = document.createElement("p");
-                tP.classList.add("style", "btn");
-                tP.textContent = t;
-                techsDiv.appendChild(tP);
-            });
-
-            // Append all parts
-            div.append(topDiv, detailDiv, techsDiv);
-            container.appendChild(div);
+          // --- Append rows ---
+          div.append(row1, row2);
+          container.appendChild(div);
         });
+        // certsArray.forEach(cert => {
+        //     const div = document.createElement("div");
+        //     div.classList.add("style", "cert");
+
+        //     // --- Top Section ---
+        //     const topDiv = document.createElement("div");
+        //     topDiv.classList.add("top");
+
+        //     const h2 = document.createElement("h2");
+        //     h2.textContent = cert.name;
+
+        //     const btn = document.createElement("button");
+        //     btn.classList.add("style", "btn-type-2");
+        //     btn.innerHTML = `<i class="ri-image-circle-fill ri-2x"></i>`;
+
+        //     // Modal on button click
+        //     btn.addEventListener("click", () => {
+        //         const overlay = document.createElement("div");
+        //         overlay.classList.add("modal-overlay");
+
+        //         const img = document.createElement("img");
+        //         img.src = cert.image;
+        //         img.alt = cert.name;
+
+        //         overlay.appendChild(img);
+        //         document.body.appendChild(overlay);
+
+        //         // Close modal on click
+        //         overlay.addEventListener("click", () => {
+        //             overlay.remove();
+        //         });
+
+        //         // Close modal on ESC
+        //         const escHandler = (e) => {
+        //             if (e.key === "Escape") {
+        //                 overlay.remove();
+        //                 document.removeEventListener("keydown", escHandler);
+        //             }
+        //         };
+        //         document.addEventListener("keydown", escHandler);
+        //     });
+
+        //     topDiv.append(h2, btn);
+
+        //     // --- Detail Section ---
+        //     const detailDiv = document.createElement("div");
+        //     detailDiv.classList.add("detail-div");
+
+        //     const h4 = document.createElement("h4");
+        //     h4.textContent = cert.place;
+
+        //     const p = document.createElement("p");
+        //     p.textContent = cert.date;
+
+        //     detailDiv.append(h4, p);
+
+        //     // --- Tech Tags ---
+        //     const techsDiv = document.createElement("div");
+        //     techsDiv.classList.add("techs");
+        //     cert.techs.forEach(t => {
+        //         const tP = document.createElement("p");
+        //         tP.classList.add("style", "btn");
+        //         tP.textContent = t;
+        //         techsDiv.appendChild(tP);
+        //     });
+
+        //     // Append all parts
+        //     div.append(topDiv, detailDiv, techsDiv);
+        //     container.appendChild(div);
+        // });
     });
 }
 function makeCarouselScrollable(containerSelector) {
@@ -966,13 +1152,15 @@ function main(selectedLang) {
 
   body.appendChild(createHeader(selectedLang, selectedWidth));
   const [grain, shape] = createBackDrop();
-  body.appendChild(grain);
+  // body.appendChild(grain);
   body.appendChild(shape);
   body.appendChild(createUniverse())
   createStars({ starCount: 100, maxTime: 100 });
   body.appendChild(createIntro(selectedLang));
   body.appendChild(createSectionTitle({textKey: "tech", lang: selectedLang, className: "line left" }));
   body.appendChild(createTech(selectedLang))
+  body.appendChild(createSectionTitle({textKey: "projects", lang: selectedLang, className: "line left" }));
+  body.appendChild(createProjects(selectedLang));
   body.appendChild(createSectionTitle({textKey: "education", lang: selectedLang, className: "line right" }));
   body.appendChild(createEdu(selectedLang))
   populateCerts(".certs-slider", certs, selectedLang);
