@@ -1,15 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"rel="stylesheet"/>
-    <link rel="icon" type="image/svg+xml" href="./images/favicon-light.svg">
-
-    <title>Amir Shygun | Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="./images/favicon-light.svg" />
+  <title>Amir Shygun | Portfolio</title>
 </head>
 <body>
+  <header class="mobile-header">
+    <button id="hamburger-btn" class="hamburger-btn style btn-type-1">
+      <i class="ri-menu-line ri-2x"></i>
+    </button>
+    <div class="mobile-nav style">
+      <a class="nav-btn" href="#home">Home</a>
+      <a class="nav-btn" href="#techs">Techs</a>
+      <a class="nav-btn" href="#projects">Projects</a>
+      <a class="nav-btn" href="#education">Education</a>
+    </div>
+    <div class="toggles">
+      <button id="theme-btn" class="style btn-type-1">
+        <i class="ri-contrast-2-line ri-2x"></i>
+      </button>
+      <button id="lang-btn" class="style btn-type-1">
+        <i class="ri-global-line ri-2x"></i>
+        <span>EN</span>
+      </button>
+    </div>
+  </header>
+  <div id="universe"></div>
+  <img src="./images/shape.svg" class="shape">
+  <div class="intro" dir="ltr">
+    <div class="image">
+      <img src="./images/profile.jpg" alt="Profile Picture">
+    </div>
+    <div class="info">
+      <div class="text">
+        <p>Open to work <span class="dot"></span></p>
+        <h1 class="name">
+          Hi, I'm <br>
+          <span>Amir Shygun</span>
+        </h1>
+        <p>
+          Frontend Developer by day &amp; Data Engineer by night. I enjoy tweaking numbers, be it margins and paddings or machine learning hyper-parameters.
+        </p>
+        <a href="https://www.google.com/search?q=rasht+gilan" target="_blank">
+          Based in Iran, Rasht <i class="ri-global-line"></i>
+        </a>
+      </div>
+
+      <div class="socials">
+        <a href="./resume/resume.pdf" class="resume style btn-type-2" download="Aryan Shygun - امیر شایگان - CV.pdf" target="_blank">
+          <i class="ri-file-download-fill ri-xl"></i> <span>Resume</span>
+        </a>
+        <a class="social" href="https://www.linkedin.com/in/amirshygun" target="_blank">
+          <i class="ri-linkedin-box-fill ri-xl"></i> <span>LinkedIn</span>
+        </a>
+        <a class="social" href="https://github.com/a-shygun" target="_blank">
+          <i class="ri-github-fill ri-xl"></i> <span>Github</span>
+        </a>
+        <a class="social" href="mailto:ryan.shygun@gmail.com" target="_blank">
+          <i class="ri-mail-fill ri-xl"></i> <span>Email</span>
+        </a>
+        <a class="social" href="https://t.me/Ryxnole" target="_blank">
+          <i class="ri-telegram-2-line ri-xl"></i> <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <h2 id="techs" class="line left">Techs</h2>
+  <div class="tech" dir="ltr">
+    <div class="web-section">
+      <div class="web-info info style">
+        <h1>Web Development</h1>
+        <div class="sub-text">
+          <p>2 Years of experience building responsive web applications. Interested in:</p>
+          <div class="topics">
+            <a href="https://www.google.com/search?q=Glassmorphism" target="_blank">Glassmorphism</a>
+            <a href="https://www.google.com/search?q=Neobrutalism" target="_blank">Neobrutalism</a>
+            <a href="https://www.google.com/search?q=Skewmorphism" target="_blank">Skewmorphism</a>
+          </div>
+        </div>
+      </div>
+      <div class="web-carousel carousel-wrapper">
+        <div class="carousel"></div>
+      </div>
+    </div>
+    <div class="data-section">
+      <div class="data-info info style">
+        <h1>Data Sciences</h1>
+        <div class="sub-text">
+          <p>EDA, Modeling, and Deployment for real world usecases. Interested in:</p>
+          <div class="topics">
+            <a href="https://www.google.com/search?q=Data%20Visualization" target="_blank">Data Visualization</a>
+            <a href="https://www.google.com/search?q=Recommender%20Systems" target="_blank">Recommender Systems</a>
+            <a href="https://www.google.com/search?q=Model%20Training" target="_blank">Model Training</a>
+          </div>
+        </div>
+      </div>
+      <div class="data-carousel carousel-wrapper">
+        <div class="carousel"></div>
+      </div>
+    </div>
+  </div>
+  <h2 id="projects" class="line right">Projects</h2>
+  <div class="projects">
+  </div>
+  <h2 id="education" class="line left">Education</h2>
+  <div class="educations">
+    <section class="uni style">
+      <div>
+        <h2>CE Major</h2><i class="ri-school-fill ri-2x"></i>
+      </div>
+      <div>
+        <h2>Degree</h2><p>Bachelor's Degree</p>
+      </div>
+      <div>
+        <h2>Institute</h2><p>Azad University of Gilan</p>
+      </div>
+      <div>
+        <h2>Duration</h2><p>2020-2025</p>
+      </div>
+    </section>
+
+    <section class="lng style">
+      <div>
+        <h2>Languages</h2><i class="ri-translate-2 ri-2x"></i>
+      </div>
+      <div>
+        <h2>Persian</h2><p>Native</p>
+      </div>
+      <div>
+        <h2>English</h2><p>Professional Proficiency</p>
+      </div>
+      <div>
+        <h2>German</h2><p>Intermediate</p>
+      </div>
+    </section>
+    <!-- <div class="edu">
+    </div> -->
+  </div>
+  <h2 id="projects" class="line right">Certs</h2>
+  <div class="certs-list">
+  </div>
+  <h2 id="education" class="line center"></h2>
+  <footer>
+    <p id="footer-txt">© 2025 Amir Shygun | All rights reserved.</p>
+    <div>
+      <a href="#" class="style btn-type-1 go-top">
+        <i class="ri-arrow-up-line ri-2x"></i>
+      </a>
+    </div>
+  </footer>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="texts.js" defer></script>
 <script src="main.js" defer></script>
 </html>
