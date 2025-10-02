@@ -267,14 +267,14 @@ const certs = {
       place: "MFT",
       date: "May - July 2025",
       techs: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
-      image: "./certs/eng/mft_data.jpeg"
+      image: "./certs/eng/mft_data_analysis.jpeg"
     },
     {
       name: "Machine Learning with Python",
       place: "MFT",
       date: "July - September 2025",
       techs: ["scikit-learn", "TensorFlow", "Keras"],
-      image: "./certs/eng/mft_machine.jpeg"
+      image: "./certs/eng/mft_machine_learning.jpeg"
     },
     {
       name: "Network+",
@@ -290,56 +290,56 @@ const certs = {
       place: "MFT",
       date: "Februar - April 2025",
       techs: ["Socket-Programmierung", "Entwurfsmuster", "Multithreading", "NoSQL-Datenbanken"],
-      image: "./certs/de/mft_python2.jpeg"
+      image: "./certs/eng/mft_python2.jpeg"
     },
     {
       name: "Programmieren mit Python",
       place: "MFT",
       date: "Dezember 2023 – April 2024",
       techs: ["Python", "Funktionale Programmierung", "OOP-Konzepte"],
-      image: "./certs/de/mft_python1.jpeg"
+      image: "./certs/eng/mft_python1.jpeg"
     },
     {
       name: "Webdesign-Paket",
       place: "MFT",
       date: "Mai – Dezember 2024",
       techs: ["HTML", "CSS", "JavaScript", "JQuery", "Flask", "MySQL"],
-      image: "./certs/de/mft_webpack.jpeg"
+      image: "./certs/eng/mft_webpack.jpeg"
     },
     {
       name: "WordPress & WooCommerce",
       place: "MFT",
       date: "Mai – Juli 2024",
       techs: ["WordPress", "CMS", "Elementor"],
-      image: "./certs/de/mft_wordpress.jpeg"
+      image: "./certs/eng/mft_wordpress.jpeg"
     },
     {
       name: "Security+",
       place: "MFT",
       date: "Mai - Juli 2025",
       techs: ["Firewalls", "VPNs", "IDS/IPS", "Richtlinien & Verfahren"],
-      image: "./certs/de/mft_security.jpeg"
+      image: "./certs/eng/mft_security.jpeg"
     },
     {
       name: "Datenanalyse mit Python",
       place: "MFT",
       date: "Mai - Juli 2025",
       techs: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
-      image: "./certs/de/mft_data.jpeg"
+      image: "./certs/eng/mft_data_analysis.jpeg"
     },
     {
       name: "Maschinelles Lernen mit Python",
       place: "MFT",
       date: "Juli - September 2025",
       techs: ["scikit-learn", "TensorFlow", "Keras"],
-      image: "./certs/de/mft_machine.jpeg"
+      image: "./certs/eng/mft_machine_learning.jpeg"
     },
     {
       name: "Network+",
       place: "MFT",
       date: "August - Oktober 2024",
       techs: ["OSI-Modell", "TCP/IP", "Subnetting"],
-      image: "./certs/de/mft_network.jpeg"
+      image: "./certs/eng/mft_network.jpeg"
     },
   ],
   fa: [
@@ -383,14 +383,14 @@ const certs = {
       place: "مجتمع ",
       date: "می - جولای ۲۰۲۵",
       techs: ["Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter"],
-      image: "./certs/fa/mft_data.jpeg"
+      image: "./certs/fa/mft_data_analysis.jpeg"
     },
     {
       name: "یادگیری ماشین با پایتون",
       place: "مجتمع ",
       date: "جولای - سپتامبر ۲۰۲۵",
       techs: ["scikit-learn", "TensorFlow", "Keras"],
-      image: "./certs/fa/mft_machine.jpeg"
+      image: "./certs/fa/mft_machine_learning.jpeg"
     },
     {
       name: "Network+",
